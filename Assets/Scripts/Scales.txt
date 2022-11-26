@@ -1,0 +1,10 @@
+Sun-R = 580
+Mercury 5080
+Venera 5580
+Earth 6000
+Mars 6780
+Jupiter 8770
+Saturn 11550
+Uran 14690
+Neptun 20350
+Pluton 26170
