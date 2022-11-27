@@ -53,7 +53,7 @@ public class TimeManager : MonoBehaviour
         {
             Time.timeScale = 9.0f;
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             Time.timeScale = 100.0f;
         }
