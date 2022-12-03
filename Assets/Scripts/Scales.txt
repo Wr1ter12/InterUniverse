@@ -1,4 +1,4 @@
-Sun-R = 580
+Sun-R = 580; 4450;
 Mercury 5080
 Venera 5580
 Earth 6000

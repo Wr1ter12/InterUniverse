@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonTrail : MonoBehaviour
 {
+    public GameObject Sun;
     public GameObject Mercury;
     public GameObject Venera;
     public GameObject Earth;
@@ -17,6 +18,7 @@ public class ButtonTrail : MonoBehaviour
     public void onClick()
     {
         if (Earth.GetComponent<TrailRenderer>().enabled==true) {
+            Sun.GetComponent<TrailRenderer>().enabled=false;
             Mercury.GetComponent<TrailRenderer>().enabled=false;
             Venera.GetComponent<TrailRenderer>().enabled=false; 
             Earth.GetComponent<TrailRenderer>().enabled=false; 
@@ -28,6 +30,7 @@ public class ButtonTrail : MonoBehaviour
             Pluto.GetComponent<TrailRenderer>().enabled=false;  
         } 
         else {
+            Sun.GetComponent<TrailRenderer>().enabled=true;
             Mercury.GetComponent<TrailRenderer>().enabled=true;
             Venera.GetComponent<TrailRenderer>().enabled=true; 
             Earth.GetComponent<TrailRenderer>().enabled=true; 
