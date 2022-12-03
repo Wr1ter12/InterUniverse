@@ -10,8 +10,6 @@ public class ButtonInput : MonoBehaviour
     [SerializeField] private TMP_InputField m_inputField_m;
     [SerializeField] private TMP_InputField m_inputField_ax;
     [SerializeField] private Behaviour script;
-    float scales;
-    float masses;
     public GameObject planet;
     // Start is called before the first frame update
     void Start()
