@@ -6,20 +6,25 @@ public class GravitySystem : MonoBehaviour
 {
     readonly float G = 6670f;
     public float ax = 1.75f;
-    GameObject[] celestials;
+    public List<GameObject> celestials;
     public string newplanetName;
 
     // Start is called before the first frame update
     void Start()
     {
-        celestials = GameObject.FindGameObjectsWithTag("Celestial");
+        celestials = new List<GameObject>();
+        for(int i = 0; i < GameObject.FindGameObjectsWithTag("Celestial").Length; i++)
+        {
+            celestials.Add(GameObject.FindGameObjectsWithTag("Celestial")[i]);
+        }
 
         InitialVelocity();
     }
 
     public void Celestials()
     {
-        celestials = GameObject.FindGameObjectsWithTag("Celestial");
+        int i = GameObject.FindGameObjectsWithTag("Celestial").Length;
+        celestials.Add(GameObject.FindGameObjectsWithTag("Celestial")[i - 1]);
 
         InititalZero();
     }

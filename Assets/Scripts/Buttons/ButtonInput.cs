@@ -25,7 +25,7 @@ public class ButtonInput : MonoBehaviour
 
     public void onClick()
     {
-        float scales = float.Parse(m_inputField_s.text);
+        float scales = float.Parse(m_inputField_s.text) * 2015;
         float masses = float.Parse(m_inputField_m.text);
         float axes = float.Parse(m_inputField_ax.text);
         planet = OnClick.planet;
