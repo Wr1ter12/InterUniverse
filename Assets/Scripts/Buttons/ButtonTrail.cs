@@ -4,42 +4,38 @@ using UnityEngine;
 
 public class ButtonTrail : MonoBehaviour
 {
-    public GameObject Sun;
-    public GameObject Mercury;
-    public GameObject Venera;
-    public GameObject Earth;
-    public GameObject Mars;
-    public GameObject Jupiter;
-    public GameObject Saturn;
-    public GameObject Uran;
-    public GameObject Neptune;
-    public GameObject Pluto;
+    public List<GameObject> celestials;
+
+    void Start()
+    {
+        celestials = new List<GameObject>();
+        for(int i = 0; i < GameObject.FindGameObjectsWithTag("Celestial").Length; i++)
+        {
+            celestials.Add(GameObject.FindGameObjectsWithTag("Celestial")[i]);
+        }
+    }
+
+    public void Celestials()
+    {
+        int i = GameObject.FindGameObjectsWithTag("Celestial").Length;
+        celestials.Add(GameObject.FindGameObjectsWithTag("Celestial")[i - 1]);
+    }
 
     public void onClick()
     {
-        if (Earth.GetComponent<TrailRenderer>().enabled==true) {
-            Sun.GetComponent<TrailRenderer>().enabled=false;
-            Mercury.GetComponent<TrailRenderer>().enabled=false;
-            Venera.GetComponent<TrailRenderer>().enabled=false; 
-            Earth.GetComponent<TrailRenderer>().enabled=false; 
-            Mars.GetComponent<TrailRenderer>().enabled=false; 
-            Jupiter.GetComponent<TrailRenderer>().enabled=false; 
-            Saturn.GetComponent<TrailRenderer>().enabled=false; 
-            Uran.GetComponent<TrailRenderer>().enabled=false; 
-            Neptune.GetComponent<TrailRenderer>().enabled=false; 
-            Pluto.GetComponent<TrailRenderer>().enabled=false;  
-        } 
-        else {
-            Sun.GetComponent<TrailRenderer>().enabled=true;
-            Mercury.GetComponent<TrailRenderer>().enabled=true;
-            Venera.GetComponent<TrailRenderer>().enabled=true; 
-            Earth.GetComponent<TrailRenderer>().enabled=true; 
-            Mars.GetComponent<TrailRenderer>().enabled=true; 
-            Jupiter.GetComponent<TrailRenderer>().enabled=true; 
-            Saturn.GetComponent<TrailRenderer>().enabled=true; 
-            Uran.GetComponent<TrailRenderer>().enabled=true; 
-            Neptune.GetComponent<TrailRenderer>().enabled=true; 
-            Pluto.GetComponent<TrailRenderer>().enabled=true;  
+        foreach(GameObject a in celestials)
+        {
+            if(a.TryGetComponent<TrailRenderer>(out var comp))
+            {
+                if(a.GetComponent<TrailRenderer>().enabled==false)
+            {
+                a.GetComponent<TrailRenderer>().enabled=true;
+            }
+            else
+            {
+                a.GetComponent<TrailRenderer>().enabled=false;
+            }
+            }
         }
     }
 }

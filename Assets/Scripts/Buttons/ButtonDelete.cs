@@ -23,6 +23,8 @@ public class ButtonDelete : MonoBehaviour
             Destroy(planet);
         }
         script.enabled = true;
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
         input.SetActive(false);
     }
 }

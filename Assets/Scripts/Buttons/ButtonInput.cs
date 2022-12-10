@@ -32,6 +32,8 @@ public class ButtonInput : MonoBehaviour
         planet.gameObject.transform.localScale = new Vector3(scales, scales, scales);
         planet.GetComponent<Rigidbody>().mass = masses;
         planet.GetComponent<SpeedController>().speed = axes;
+        Cursor.lockState = CursorLockMode.Confined;
+        Time.timeScale = 1f;
         script.enabled = true;
         input.SetActive(false);
     }

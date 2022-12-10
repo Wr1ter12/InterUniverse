@@ -6,6 +6,7 @@ using TMPro;
 public class ButtonInputCreate : MonoBehaviour
 {
     public GravitySystem gravitsys;
+    public ButtonTrail buttontrail;
     public GameObject input;
     [SerializeField] private TMP_InputField m_inputField_name;
     [SerializeField] private TMP_InputField m_inputField_s;
@@ -43,7 +44,10 @@ public class ButtonInputCreate : MonoBehaviour
         newplanet.GetComponent<SpeedController>().speed = axes;
         name = newplanet.name;
         gravitsys.GetComponent<GravitySystem>().Celestials();
+        buttontrail.GetComponent<ButtonTrail>().Celestials();
         newplanet.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
+        Time.timeScale = 1f;
         script.enabled = true;
         input.SetActive(false);
     }

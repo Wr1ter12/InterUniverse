@@ -20,7 +20,9 @@ public class ButtonCancel : MonoBehaviour
 
     public void onClick()
     {
+        Time.timeScale = 1f;
         script.enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
         input.SetActive(false);
     }
 }

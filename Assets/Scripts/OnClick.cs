@@ -24,6 +24,7 @@ public class OnClick : MonoBehaviour
     {
         planet = gameObject;
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.Confined;
         script.enabled = false;
         input.SetActive(true);
     }

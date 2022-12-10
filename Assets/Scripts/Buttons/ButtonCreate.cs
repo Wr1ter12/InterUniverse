@@ -22,6 +22,7 @@ public class ButtonCreate : MonoBehaviour
     public void onClick()
     {
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.Confined;
         script.enabled = false;
         input.SetActive(true);
     }
