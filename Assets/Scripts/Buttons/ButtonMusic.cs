@@ -6,6 +6,7 @@ public class ButtonMusic : MonoBehaviour
 {
     public AudioSource PlanetMarch;
     public AudioSource SunnyWiggle;
+    public AudioSource UpToTheStars;
 
     public void onClick()
     {
@@ -19,10 +20,18 @@ public class ButtonMusic : MonoBehaviour
             if(SunnyWiggle.isPlaying)
             {
                 SunnyWiggle.Stop();
+                UpToTheStars.Play();
             }
             else 
             {
+                if(UpToTheStars.isPlaying)
+                {
+                UpToTheStars.Stop();
+                }
+                else 
+                {
                 PlanetMarch.Play();
+                }
             }
         }
     }
