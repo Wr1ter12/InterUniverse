@@ -17,10 +17,11 @@ public class ButtonInputCreate : MonoBehaviour
     public GameObject planet;
     public GameObject sun;
     public static string name;
+    public GameObject camera;
+    GameObject newplanet;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -35,9 +36,16 @@ public class ButtonInputCreate : MonoBehaviour
         float scales = float.Parse(m_inputField_s.text) * 2015;
         float masses = float.Parse(m_inputField_m.text);
         float axes = float.Parse(m_inputField_ax.text);
-        float pos = float.Parse(m_inputField_pos.text) * 15100;
-        float sunpos = sun.transform.position.x;
-        GameObject newplanet = Instantiate(planet, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+        if(m_inputField_pos.text == "")
+        {
+            newplanet = Instantiate(planet, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+        }
+        else
+        {
+            float pos = float.Parse(m_inputField_pos.text) * 15100;
+            float sunpos = sun.transform.position.x;
+            newplanet = Instantiate(planet, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+        }
         newplanet.name = planetname;
         newplanet.gameObject.transform.localScale = new Vector3(scales, scales, scales);
         newplanet.GetComponent<Rigidbody>().mass = masses;
