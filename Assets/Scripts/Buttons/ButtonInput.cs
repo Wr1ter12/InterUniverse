@@ -36,7 +36,7 @@ public class ButtonInput : MonoBehaviour
         else {masses = float.Parse(m_inputField_m.text);}
         
         if(m_inputField_ax.text == "") {axes = planet.GetComponent<SpeedController>().speed;}
-        else {axes = float.Parse(m_inputField_ax.text);}
+        else {axes = 2 - float.Parse(m_inputField_ax.text);}
 
         planet.gameObject.transform.localScale = new Vector3(scales, scales, scales);
         planet.GetComponent<Rigidbody>().mass = masses;

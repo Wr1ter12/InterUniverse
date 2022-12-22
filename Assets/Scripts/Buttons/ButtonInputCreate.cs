@@ -35,7 +35,7 @@ public class ButtonInputCreate : MonoBehaviour
         string planetname = m_inputField_name.text;
         float scales = float.Parse(m_inputField_s.text) * 2015;
         float masses = float.Parse(m_inputField_m.text);
-        float axes = float.Parse(m_inputField_ax.text);
+        float axes = 2 - float.Parse(m_inputField_ax.text);
         if(m_inputField_pos.text == "")
         {
             newplanet = Instantiate(planet, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));

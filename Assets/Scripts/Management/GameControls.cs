@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class GameControls : MonoBehaviour
 {
+   [SerializeField] private Behaviour script;
+   public GameObject Quit;
+
    void Update()
    {
       if (Input.GetKey("escape"))
       {
-         Application.Quit();
+         Time.timeScale = 0f;
+         script.enabled = false;
+         Cursor.lockState = CursorLockMode.Confined;
+         Quit.SetActive(true);
       }
-      if(Input.GetKey(KeyCode.LeftAlt))
+      if(Input.GetKeyDown(KeyCode.LeftAlt))
       {
          if(Cursor.lockState == CursorLockMode.Locked)
          {
