@@ -5,6 +5,7 @@ using TMPro;
 
 public class ButtonInputCreate : MonoBehaviour
 {
+    GameObject obj;
     public GravitySystem gravitsys;
     public ButtonTrail buttontrail;
     public GameObject input;
@@ -22,6 +23,7 @@ public class ButtonInputCreate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        obj = GameObject.Find("ButtonTime");
     }
 
     // Update is called once per frame
@@ -55,7 +57,46 @@ public class ButtonInputCreate : MonoBehaviour
         buttontrail.GetComponent<ButtonTrail>().Celestials();
         newplanet.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
-        Time.timeScale = 1f;
+        if(obj.GetComponent<TMP_Dropdown>().value == 0)
+        {
+            Time.timeScale = 1.0f;
+        }
+        if(obj.GetComponent<TMP_Dropdown>().value == 1)
+        {
+            Time.timeScale = 2.0f;
+        }
+        if(obj.GetComponent<TMP_Dropdown>().value == 2)
+        {
+            Time.timeScale = 3.0f;
+        }
+        if(obj.GetComponent<TMP_Dropdown>().value == 3)
+        {
+            Time.timeScale = 4.0f;
+        }
+        if(obj.GetComponent<TMP_Dropdown>().value == 4)
+        {
+            Time.timeScale = 5.0f;
+        }
+        if(obj.GetComponent<TMP_Dropdown>().value == 5)
+        {
+            Time.timeScale = 25.0f;
+        }
+        if(obj.GetComponent<TMP_Dropdown>().value == 6)
+        {
+            Time.timeScale = 0.5f;
+        }
+        if(obj.GetComponent<TMP_Dropdown>().value == 7)
+        {
+            Time.timeScale = 0.33f;
+        }
+        if(obj.GetComponent<TMP_Dropdown>().value == 8)
+        {
+            Time.timeScale = 0.25f;
+        }
+        if(obj.GetComponent<TMP_Dropdown>().value == 9)
+        {
+            Time.timeScale = 0.2f;
+        }
         script.enabled = true;
         input.SetActive(false);
     }

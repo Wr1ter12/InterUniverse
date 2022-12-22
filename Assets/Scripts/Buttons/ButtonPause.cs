@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ButtonPause : MonoBehaviour
 {
-    public TextMeshProUGUI text;
     GameObject obj;
+    public GameObject button;
+    public Sprite[] sprites = new Sprite[2];
 
     public void Start()
     {
@@ -67,11 +69,11 @@ public class ButtonPause : MonoBehaviour
     public void Update() {
         if (Time.timeScale == 0.0f)
         {
-            text.text = ">";
+            button.GetComponent<Image>().sprite = sprites[1];
         }
         else
         {
-            text.text = "II";
+            button.GetComponent<Image>().sprite = sprites[0];
         }
     }
 }

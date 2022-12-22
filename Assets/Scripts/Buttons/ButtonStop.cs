@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ButtonStop : MonoBehaviour
 {
     public GameObject Sun;
-    public TextMeshProUGUI text;
+    public GameObject button;
+    public Sprite[] sprites = new Sprite[2];
+
     public bool freeze = false;
     // Start is called before the first frame update
     public void onClick()
@@ -28,11 +31,11 @@ public class ButtonStop : MonoBehaviour
     {
         if(freeze == false)
         {
-            text.text = "Stop";
+            button.GetComponent<Image>().sprite = sprites[0];
         }
         else
         {
-            text.text = "Start";
+            button.GetComponent<Image>().sprite = sprites[1];
         }
     }
 }
