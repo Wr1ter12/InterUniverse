@@ -8,7 +8,7 @@ public class ButtonStop : MonoBehaviour
 {
     public GameObject Sun;
     public GameObject button;
-    public Sprite[] sprites = new Sprite[2];
+    public TextMeshProUGUI text;
 
     public bool freeze = false;
     // Start is called before the first frame update
@@ -31,11 +31,11 @@ public class ButtonStop : MonoBehaviour
     {
         if(freeze == false)
         {
-            button.GetComponent<Image>().sprite = sprites[0];
+            text.text = "СТОП";
         }
         else
         {
-            button.GetComponent<Image>().sprite = sprites[1];
+            text.text = "СТАРТ";
         }
     }
 }
