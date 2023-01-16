@@ -40,13 +40,28 @@ public class ButtonInputCreate : MonoBehaviour
         float axes = 2 - float.Parse(m_inputField_ax.text);
         if(m_inputField_pos.text == "")
         {
-            newplanet = Instantiate(planet, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+            if(ButtonType.type == "planet")
+            {
+                newplanet = Instantiate(planet, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+            }
+            else if(ButtonType.type == "star")
+            {
+                newplanet = Instantiate(sun, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+            }
         }
         else
         {
             float pos = float.Parse(m_inputField_pos.text) * 15100;
             float sunpos = sun.transform.position.x;
-            newplanet = Instantiate(planet, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+            if(ButtonType.type == "planet")
+            {
+                newplanet = Instantiate(planet, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+            }
+            else if(ButtonType.type == "star")
+            {
+                Debug.Log(ButtonType.type);
+                newplanet = Instantiate(sun, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+            }
         }
         newplanet.name = planetname;
         newplanet.gameObject.transform.localScale = new Vector3(scales, scales, scales);
