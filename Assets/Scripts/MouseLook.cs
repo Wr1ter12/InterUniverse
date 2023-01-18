@@ -6,8 +6,8 @@ public class MouseLook : MonoBehaviour
 {
     public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
     public RotationAxes axes = RotationAxes.MouseXAndY;
-    public float sensitivityX = 15F;
-    public float sensitivityY = 15F;
+    public float sensitivityX = 2F;
+    public float sensitivityY = 2F;
     public float minimumX = -360F;
     public float maximumX = 360F;
     public float minimumY = -90F;
@@ -20,6 +20,19 @@ public class MouseLook : MonoBehaviour
     float rotAverageY = 0F;
     public float frameCounter = 20;
     public static Quaternion originalRotation;
+
+    private void Awake()
+    {
+        sensitivityX = PlayerPrefs.GetFloat("Sense");
+        sensitivityY = PlayerPrefs.GetFloat("Sense");
+        if(sensitivityX == 0f)
+        {
+            sensitivityX = 2f;
+            sensitivityY = 2f;
+            PlayerPrefs.SetFloat("Sense", sensitivityX);
+        }
+    }
+
     void Update ()
     {
         if (axes == RotationAxes.MouseXAndY)

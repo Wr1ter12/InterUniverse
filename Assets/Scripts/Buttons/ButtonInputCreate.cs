@@ -17,6 +17,7 @@ public class ButtonInputCreate : MonoBehaviour
     [SerializeField] private Behaviour script;
     public GameObject planet;
     public GameObject sun;
+    public GameObject star;
     public static string name;
     public GameObject camera;
     GameObject newplanet;
@@ -46,7 +47,7 @@ public class ButtonInputCreate : MonoBehaviour
             }
             else if(ButtonType.type == "star")
             {
-                newplanet = Instantiate(sun, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+                newplanet = Instantiate(star, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
             }
         }
         else
@@ -59,8 +60,7 @@ public class ButtonInputCreate : MonoBehaviour
             }
             else if(ButtonType.type == "star")
             {
-                Debug.Log(ButtonType.type);
-                newplanet = Instantiate(sun, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+                newplanet = Instantiate(star, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
             }
         }
         newplanet.name = planetname;

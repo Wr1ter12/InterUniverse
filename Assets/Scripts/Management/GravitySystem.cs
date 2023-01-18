@@ -95,7 +95,6 @@ public class GravitySystem : MonoBehaviour
                         SpeedController speedController  = a.GetComponent<SpeedController>();
                         float currentspeed = speedController.speed;
                         float U = (2/r) * (1/(ax * currentspeed));
-
                         a.GetComponent<Rigidbody>().velocity += -a.transform.right * Mathf.Sqrt((G * m2) * U);
                     }
                 }
