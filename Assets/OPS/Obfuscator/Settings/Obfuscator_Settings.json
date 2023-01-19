@@ -141,7 +141,7 @@
         {
           "Type" : "Bool",
           "Key" : "Obfuscate_Class_Public",
-          "Value" : "True",
+          "Value" : "False",
           "Values" : null
         },
         {
@@ -188,7 +188,7 @@
         {
           "Type" : "Bool",
           "Key" : "Obfuscate_Method_Public",
-          "Value" : "True",
+          "Value" : "False",
           "Values" : null
         }
       ]
@@ -240,7 +240,7 @@
         {
           "Type" : "Bool",
           "Key" : "Obfuscate_Field_Public",
-          "Value" : "True",
+          "Value" : "False",
           "Values" : null
         }
       ]
@@ -275,7 +275,7 @@
         {
           "Type" : "Bool",
           "Key" : "Obfuscate_Property_Public",
-          "Value" : "True",
+          "Value" : "False",
           "Values" : null
         }
       ]
@@ -310,7 +310,7 @@
         {
           "Type" : "Bool",
           "Key" : "Obfuscate_Event_Public",
-          "Value" : "True",
+          "Value" : "False",
           "Values" : null
         }
       ]

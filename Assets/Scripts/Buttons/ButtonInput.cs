@@ -31,13 +31,43 @@ public class ButtonInput : MonoBehaviour
     {
         planet = OnClick.planet;
         if(m_inputField_s.text == "") {scales = planet.transform.localScale.x;}
-        else {scales = float.Parse(m_inputField_s.text) * 2015;}
+        else 
+        {
+            if(ButtonSType.type == "ER")
+            {
+                scales = float.Parse(m_inputField_s.text) * 2015;
+            }
+            else if(ButtonSType.type == "Km")
+            {
+                scales = float.Parse(m_inputField_s.text) * 2015 / 6371;
+            }
+        }
 
         if(m_inputField_m.text == "") {masses = planet.GetComponent<Rigidbody>().mass;}
-        else {masses = float.Parse(m_inputField_m.text);}
+        else 
+        {
+            if(ButtonMType.type == "EM")
+            {
+                masses = float.Parse(m_inputField_m.text);
+            }
+            else if(ButtonMType.type == "T")
+            {
+                masses = float.Parse(m_inputField_m.text) / 5972000000000000;
+            }
+        }
         
         if(m_inputField_ax.text == "") {axes = planet.GetComponent<SpeedController>().speed;}
-        else {axes = 2 - float.Parse(m_inputField_ax.text);}
+        else 
+        {
+            if(float.Parse(m_inputField_ax.text) >= 2f)
+            {
+                axes = 0.1f;
+            }
+            else
+            {
+                axes = 2 - float.Parse(m_inputField_ax.text);
+            }
+        }
 
         planet.gameObject.transform.localScale = new Vector3(scales, scales, scales);
         planet.GetComponent<Rigidbody>().mass = masses;

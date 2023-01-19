@@ -11,6 +11,6 @@ public class CurrentAx : MonoBehaviour
     void Update()
     {
         planet = OnClick.planet;
-        text.text = planet.GetComponent<SpeedController>().speed.ToString();
+        text.text = (2 - planet.GetComponent<SpeedController>().speed).ToString();
     }
 }

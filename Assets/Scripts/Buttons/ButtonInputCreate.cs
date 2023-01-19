@@ -17,6 +17,9 @@ public class ButtonInputCreate : MonoBehaviour
     [SerializeField] private Behaviour script;
     public GameObject planet;
     float axes;
+    float pos;
+    float scales;
+    float masses;
     public GameObject sun;
     public GameObject star;
     public static string name;
@@ -37,8 +40,22 @@ public class ButtonInputCreate : MonoBehaviour
     public void onClick()
     {
         string planetname = m_inputField_name.text;
-        float scales = float.Parse(m_inputField_s.text) * 2015;
-        float masses = float.Parse(m_inputField_m.text);
+        if(ButtonSType.type == "ER")
+        {
+            scales = float.Parse(m_inputField_s.text) * 2015;
+        }
+        else if(ButtonSType.type == "Km")
+        {
+            scales = float.Parse(m_inputField_s.text) * 2015 / 6371;
+        }
+        if(ButtonMType.type == "EM")
+        {
+            masses = float.Parse(m_inputField_m.text);
+        }
+        else if(ButtonMType.type == "T")
+        {
+            masses = float.Parse(m_inputField_m.text) / 5972000000000000;
+        }
         if(float.Parse(m_inputField_ax.text) >= 2f)
         {
             axes = 0.1f;
@@ -60,7 +77,14 @@ public class ButtonInputCreate : MonoBehaviour
         }
         else
         {
-            float pos = float.Parse(m_inputField_pos.text) * 15100;
+            if(ButtonPosType.type == "AU")
+            {
+                pos = float.Parse(m_inputField_pos.text) * 15100;
+            }
+            else if(ButtonPosType.type == "Km")
+            {
+                pos = float.Parse(m_inputField_pos.text) * 15100 * 0.00000000668459f;
+            }
             float sunpos = sun.transform.position.x;
             if(ButtonType.type == "planet")
             {
