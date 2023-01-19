@@ -229,8 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5e96d9598fad54cb0a399c3268b63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 8294805824299839434, guid: 56e65dcb56767fe47a9d349aaf5bf1a4, type: 3}
   script: {fileID: 6268845491328797358, guid: c6773b7208e0886499ed8ca7be131f9d, type: 3}
+  store: {fileID: 2604651483131883345, guid: 276facd34901f6f468de243119b28035, type: 3}
 --- !u!114 &2166216386572799285
 MonoBehaviour:
   m_ObjectHideFlags: 0

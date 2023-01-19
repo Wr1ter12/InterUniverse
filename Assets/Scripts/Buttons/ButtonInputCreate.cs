@@ -16,6 +16,7 @@ public class ButtonInputCreate : MonoBehaviour
     [SerializeField] private TMP_InputField m_inputField_pos;
     [SerializeField] private Behaviour script;
     public GameObject planet;
+    float axes;
     public GameObject sun;
     public GameObject star;
     public static string name;
@@ -38,7 +39,14 @@ public class ButtonInputCreate : MonoBehaviour
         string planetname = m_inputField_name.text;
         float scales = float.Parse(m_inputField_s.text) * 2015;
         float masses = float.Parse(m_inputField_m.text);
-        float axes = 2 - float.Parse(m_inputField_ax.text);
+        if(float.Parse(m_inputField_ax.text) >= 2f)
+        {
+            axes = 0.1f;
+        }
+        else
+        {
+            axes = 2 - float.Parse(m_inputField_ax.text);
+        }
         if(m_inputField_pos.text == "")
         {
             if(ButtonType.type == "planet")

@@ -11,6 +11,6 @@ public class CurrentS : MonoBehaviour
     void Update()
     {
         planet = OnClick.planet;
-        text.text = planet.transform.localScale.x.ToString();
+        text.text = (planet.transform.localScale.x / 2015).ToString();
     }
 }
