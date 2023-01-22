@@ -23,6 +23,7 @@ public class ButtonInputCreate : MonoBehaviour
     float masses;
     public GameObject sun;
     public GameObject star;
+    public GameObject blackhole;
     public static string name;
     public GameObject camera;
     GameObject newplanet;
@@ -75,6 +76,10 @@ public class ButtonInputCreate : MonoBehaviour
             {
                 newplanet = Instantiate(star, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
             }
+            else if(ButtonType.type == "blackhole")
+            {
+                newplanet = Instantiate(blackhole, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(90f, 0f, 0f));
+            }
         }
         else
         {
@@ -87,6 +92,7 @@ public class ButtonInputCreate : MonoBehaviour
                 pos = float.Parse(m_inputField_pos.text) * 15100 * 0.00000000668459f;
             }
             float sunpos = sun.transform.position.x;
+
             if(ButtonType.type == "planet")
             {
                 newplanet = Instantiate(planet, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
@@ -95,10 +101,21 @@ public class ButtonInputCreate : MonoBehaviour
             {
                 newplanet = Instantiate(star, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
             }
+            else if(ButtonType.type == "blackhole")
+            {
+                newplanet = Instantiate(blackhole, new Vector3(sunpos, 0, pos), Quaternion.Euler(90f, 0f, 0f));
+            }
         }
         newplanet.name = planetname;
         newplanet.gameObject.transform.localScale = new Vector3(scales, scales, scales);
-        newplanet.GetComponent<Rigidbody>().mass = masses;
+        if(ButtonType.type == "blackhole")
+        {
+            newplanet.GetComponent<Rigidbody>().mass = masses * 1000;
+        }
+        else
+        {
+            newplanet.GetComponent<Rigidbody>().mass = masses;
+        }
         newplanet.GetComponent<SpeedController>().speed = axes;
         name = newplanet.name;
         gravitsys.GetComponent<GravitySystem>().Celestials();

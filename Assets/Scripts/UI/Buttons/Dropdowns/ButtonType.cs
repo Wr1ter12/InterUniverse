@@ -23,5 +23,9 @@ public class ButtonType : MonoBehaviour
         {
             type = "star";
         }
+        if(value == 2)
+        {
+            type = "blackhole";
+        }
     }
 }
