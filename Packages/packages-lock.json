@@ -92,8 +92,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-<<<<<<< Updated upstream
-=======
     "com.unity.postprocessing": {
       "version": "3.2.2",
       "depth": 0,
@@ -131,7 +129,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
->>>>>>> Stashed changes
     "com.unity.services.core": {
       "version": "1.5.2",
       "depth": 1,
