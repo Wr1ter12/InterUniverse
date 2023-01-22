@@ -8,13 +8,13 @@ public class OnClick : MonoBehaviour
     GameObject input;
     [SerializeField] private Behaviour script;
     public static GameObject planet;
-    GameObject camera;
+    GameObject cam;
     public GameObject store;
 
     // Start is called before the first frame update
     void Start()
     {
-        camera = GameObject.Find("Main Camera");
+        cam = GameObject.Find("Main Camera");
         store = GameObject.Find("Storage");
         input = store.GetComponent<InactiveManager>().changing;
     }
@@ -22,7 +22,7 @@ public class OnClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnMouseDown()
@@ -31,7 +31,7 @@ public class OnClick : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.Confined;
         script.enabled = false;
-        camera.GetComponent<AudioSource>().Play();
+        cam.GetComponent<AudioSource>().Play();
         input.SetActive(true);
     }
 }
