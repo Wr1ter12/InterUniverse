@@ -8,6 +8,7 @@ public class ButtonInputCreate : MonoBehaviour
     GameObject obj;
     public GravitySystem gravitsys;
     public ButtonTrail buttontrail;
+    public ButtonDestroy buttondestroy;
     public GameObject input;
     [SerializeField] private TMP_InputField m_inputField_name;
     [SerializeField] private TMP_InputField m_inputField_s;
@@ -102,6 +103,7 @@ public class ButtonInputCreate : MonoBehaviour
         name = newplanet.name;
         gravitsys.GetComponent<GravitySystem>().Celestials();
         buttontrail.GetComponent<ButtonTrail>().Celestials();
+        buttondestroy.GetComponent<ButtonDestroy>().Celestials();
         newplanet.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
         if(obj.GetComponent<TMP_Dropdown>().value == 0)

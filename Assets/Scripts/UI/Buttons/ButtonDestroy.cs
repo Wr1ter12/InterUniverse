@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonTrail : MonoBehaviour
+public class ButtonDestroy : MonoBehaviour
 {
     public List<GameObject> celestials;
+    public GravitySystem gravitsys;
+    public ButtonTrail buttontrail;
 
     void Start()
     {
@@ -25,16 +27,20 @@ public class ButtonTrail : MonoBehaviour
     {
         foreach(GameObject a in celestials)
         {
-            if(a.TryGetComponent<TrailRenderer>(out var comp))
+            if(a != null)
             {
-                if(a.GetComponent<TrailRenderer>().enabled==false)
-            {
-                a.GetComponent<TrailRenderer>().enabled=true;
-            }
-            else
-            {
-                a.GetComponent<TrailRenderer>().enabled=false;
-            }
+                if(a.name == "Sun")
+                {
+                    gravitsys.celestials.Remove(a);
+                    buttontrail.celestials.Remove(a);
+                    a.SetActive(false);
+                }
+                else
+                {
+                    gravitsys.celestials.Remove(a);
+                    buttontrail.celestials.Remove(a);
+                    Destroy(a);
+                }
             }
         }
     }

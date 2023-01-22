@@ -8,6 +8,7 @@ public class ButtonDelete : MonoBehaviour
     [SerializeField] private Behaviour script;
     public GameObject planet;
     public GravitySystem gravitsys;
+    public ButtonTrail buttontrail;
 
     public void onClick()
     {
@@ -15,11 +16,13 @@ public class ButtonDelete : MonoBehaviour
         if(planet.name == "Mercury" || planet.name == "Sun")
         {
             gravitsys.celestials.Remove(planet);
+            buttontrail.celestials.Remove(planet);
             planet.SetActive(false);
         }
         else
         {
             gravitsys.celestials.Remove(planet);
+            buttontrail.celestials.Remove(planet);
             Destroy(planet);
         }
         script.enabled = true;
