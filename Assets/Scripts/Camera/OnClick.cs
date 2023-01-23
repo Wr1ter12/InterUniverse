@@ -11,6 +11,10 @@ public class OnClick : MonoBehaviour
     GameObject camera;
     public GameObject store;
 
+    public GameObject create;
+    public GameObject tutor;
+    public GameObject quit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +31,14 @@ public class OnClick : MonoBehaviour
 
     void OnMouseDown()
     {
-        planet = gameObject;
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.Confined;
-        script.enabled = false;
-        camera.GetComponent<AudioSource>().Play();
-        input.SetActive(true);
+        if(tutor.activeSelf == false && create.activeSelf == false && quit.activeSelf == false)
+        {
+            planet = gameObject;
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.Confined;
+            script.enabled = false;
+            camera.GetComponent<AudioSource>().Play();
+            input.SetActive(true);
+        }
     }
 }

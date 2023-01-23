@@ -319,8 +319,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.38953537, b: 0, a: 1}
-      maxColor: {r: 1, g: 0, b: 0.016252995, a: 1}
+      minColor: {r: 0, g: 0.50344586, b: 1, a: 1}
+      maxColor: {r: 0, g: 0.29234123, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5041,9 +5041,9 @@ GameObject:
   - component: {fileID: 4864638117685555353}
   - component: {fileID: 4864638117685555358}
   - component: {fileID: 4864638117685555359}
-  - component: {fileID: -6535798710115597628}
+  - component: {fileID: 6973391085298984462}
   m_Layer: 0
-  m_Name: BlackHole
+  m_Name: WhiteHole
   m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5095,7 +5095,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7af526edd06e7d74e818f6162fbac10e, type: 2}
+  - {fileID: 2100000, guid: 83537b6cd78fbeb4c927af14c1ea5f59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5209,8 +5209,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 1}
-      key1: {r: 0, g: 0, b: 0, a: 1}
+      key0: {r: 0.023584902, g: 1, b: 0.9800606, a: 1}
+      key1: {r: 0, g: 1, b: 0.97360396, a: 1}
       key2: {r: 1, g: 0.9160186, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5288,7 +5288,7 @@ MonoBehaviour:
   create: {fileID: 4338328878484022708, guid: b743364213269d248b0de59ae900a7fa, type: 3}
   tutor: {fileID: 6663982825741205753, guid: c2d0a88662eeaf94da5c9080c523900d, type: 3}
   quit: {fileID: 3097198061208337803, guid: aa998f5fddbe3c74caf7604eadaccb35, type: 3}
---- !u!114 &-6535798710115597628
+--- !u!114 &6973391085298984462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5297,7 +5297,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5711623474786979275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aaf84babd0d9d2478963a488c831e0b, type: 3}
+  m_Script: {fileID: 11500000, guid: c7820af676d6bcc429214b34a302a18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gravitsys: {fileID: 0}

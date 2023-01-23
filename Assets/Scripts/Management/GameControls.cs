@@ -9,7 +9,7 @@ public class GameControls : MonoBehaviour
 
    void Update()
    {
-      if (Input.GetKey("escape"))
+      if(Input.GetKeyDown("escape"))
       {
          Time.timeScale = 0f;
          script.enabled = false;

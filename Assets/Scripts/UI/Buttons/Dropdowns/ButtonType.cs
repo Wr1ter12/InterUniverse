@@ -27,5 +27,9 @@ public class ButtonType : MonoBehaviour
         {
             type = "blackhole";
         }
+        if(value == 3)
+        {
+            type = "whitehole";
+        }
     }
 }

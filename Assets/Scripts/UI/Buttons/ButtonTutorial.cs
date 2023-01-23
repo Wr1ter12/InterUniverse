@@ -9,6 +9,10 @@ public class ButtonTutorial : MonoBehaviour
     [SerializeField] private Behaviour script;
     public GameObject tutor;
     public bool tutorial;
+    
+    public GameObject create;
+    public GameObject change;
+    public GameObject quit;
 
     void Start() {
         obj = GameObject.Find("ButtonTime");
@@ -19,11 +23,14 @@ public class ButtonTutorial : MonoBehaviour
     {
         if(tutorial == false)
         {
-            tutorial = true;
-            Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.Confined;
-            script.enabled = false;
-            tutor.SetActive(true);
+            if(change.activeSelf == false && create.activeSelf == false && quit.activeSelf == false)
+            {
+                tutorial = true;
+                Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.Confined;
+                script.enabled = false;
+                tutor.SetActive(true);
+            }
         }
         else
         {

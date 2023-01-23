@@ -7,23 +7,19 @@ public class ButtonCreate : MonoBehaviour
     public GameObject planet;
     [SerializeField] private Behaviour script;
     public GameObject input;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject tutor;
+    public GameObject change;
+    public GameObject quit;
 
     public void onClick()
     {
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.Confined;
-        script.enabled = false;
-        input.SetActive(true);
+        if(change.activeSelf == false && tutor.activeSelf == false && quit.activeSelf == false)
+        {
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.Confined;
+            script.enabled = false;
+            input.SetActive(true);
+        }
     }
 }

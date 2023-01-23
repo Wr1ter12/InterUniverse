@@ -231,6 +231,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script: {fileID: 6268845491328797358, guid: c6773b7208e0886499ed8ca7be131f9d, type: 3}
   store: {fileID: 2604651483131883345, guid: 276facd34901f6f468de243119b28035, type: 3}
+  create: {fileID: 4338328878484022708, guid: b743364213269d248b0de59ae900a7fa, type: 3}
+  tutor: {fileID: 6663982825741205753, guid: c2d0a88662eeaf94da5c9080c523900d, type: 3}
+  quit: {fileID: 3097198061208337803, guid: aa998f5fddbe3c74caf7604eadaccb35, type: 3}
 --- !u!114 &2166216386572799285
 MonoBehaviour:
   m_ObjectHideFlags: 0
