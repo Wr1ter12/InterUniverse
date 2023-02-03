@@ -31,5 +31,9 @@ public class ButtonType : MonoBehaviour
         {
             type = "whitehole";
         }
+        if(value == 4)
+        {
+            type = "asteroid";
+        }
     }
 }

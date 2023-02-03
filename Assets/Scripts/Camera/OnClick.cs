@@ -20,6 +20,9 @@ public class OnClick : MonoBehaviour
     {
         camera = GameObject.Find("Main Camera");
         store = GameObject.Find("Storage");
+        create = store.GetComponent<InactiveManager>().creating;
+        tutor = store.GetComponent<InactiveManager>().tutor;
+        quit = store.GetComponent<InactiveManager>().quit;
         input = store.GetComponent<InactiveManager>().changing;
     }
 

@@ -38,7 +38,7 @@ public class ButtonTime : MonoBehaviour
         }
         if(value == 5)
         {
-            Time.timeScale = 25.0f;
+            Time.timeScale = 10.0f;
         }
         if(value == 6)
         {

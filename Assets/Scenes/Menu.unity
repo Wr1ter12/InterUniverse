@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39.70011, y: 73.5}
+  m_AnchoredPosition: {x: -39.9, y: 73.5}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &34247782
@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 47160606}
+  cam: {fileID: 1096526864}
 --- !u!1 &47160606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,6 +3840,7 @@ GameObject:
   - component: {fileID: 1096526869}
   - component: {fileID: 1096526872}
   - component: {fileID: 1096526873}
+  - component: {fileID: 1096526874}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4117,6 +4119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 47160606}
+  save: 0
 --- !u!114 &1096526873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4150,6 +4153,19 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1096526874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096526864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c122ae3713f089f4f9002273081861e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save: 0
 --- !u!1 &1100034018
 GameObject:
   m_ObjectHideFlags: 0
@@ -4373,6 +4389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1164293009}
   - component: {fileID: 1164293011}
+  - component: {fileID: 1164293012}
   m_Layer: 0
   m_Name: ToggleCoordinates
   m_TagString: Untagged
@@ -4449,8 +4466,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonPostProcessing, Assembly-CSharp
+      - m_Target: {fileID: 1164293012}
+        m_TargetAssemblyTypeName: ButtonCoordinates, Assembly-CSharp
         m_MethodName: onToggle
         m_Mode: 1
         m_Arguments:
@@ -4462,6 +4479,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1164293012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164293008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133d704b1b7f4bd43a5d1a174a855c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1096526864}
 --- !u!1 &1170370144
 GameObject:
   m_ObjectHideFlags: 0

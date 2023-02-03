@@ -5,9 +5,9 @@ using UnityEngine;
 public class GravitySystem : MonoBehaviour
 {
     readonly float G = 6670f;
-    public float ax = 1.75f;
     public List<GameObject> celestials;
     public string newplanetName;
+    float ax;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +25,8 @@ public class GravitySystem : MonoBehaviour
     {
         int i = GameObject.FindGameObjectsWithTag("Celestial").Length;
         celestials.Add(GameObject.FindGameObjectsWithTag("Celestial")[i - 1]);
-
-        InititalZero();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //DisableVelocity();
+        InitialZero();
     }
 
     private void FixedUpdate()
@@ -75,22 +69,29 @@ public class GravitySystem : MonoBehaviour
             {
                 foreach(GameObject b in celestials)
                 {
-                    if(!a.Equals(b))
+                    if(b != null)
                     {
-                        float m1 = a.GetComponent<Rigidbody>().mass;
-                        float m2 = b.GetComponent<Rigidbody>().mass;
-                        float r = Vector3.Distance(a.transform.position, b.transform.position);
-                        SpeedController speedController  = a.GetComponent<SpeedController>();
-                        float currentspeed = speedController.speed;
-                        float U = (2/r) * (1/(ax * currentspeed));
+                        if(!a.Equals(b))
+                        {
+                            if(a != null)
+                            {
+                                float m1 = a.GetComponent<Rigidbody>().mass;
+                                float m2 = b.GetComponent<Rigidbody>().mass;
+                                float r = Vector3.Distance(a.transform.position, b.transform.position);
+                                SpeedController speedController  = a.GetComponent<SpeedController>();
+                                float currentspeed = speedController.speed;
+                                ax = r / (Mathf.Sqrt(1 - Mathf.Pow(currentspeed, 2)));
+                                float U = (2/r) - (1/ax);
 
-                        a.GetComponent<Rigidbody>().velocity += -a.transform.right * Mathf.Sqrt((G * m2) * U);
+                                a.GetComponent<Rigidbody>().velocity += -a.transform.right * Mathf.Sqrt((G * m2) * U);
+                            }
+                        }
                     }
                 }
             }
         }
     }
-    void InititalZero()
+    void DisableVelocity()
     {
         foreach(GameObject a in celestials)
         {
@@ -98,18 +99,67 @@ public class GravitySystem : MonoBehaviour
             {
                 foreach(GameObject b in celestials)
                 {
-                    if(!a.Equals(b))
+                    if(b != null)
                     {
-                        newplanetName = ButtonInputCreate.name;
-                        if(a.name == newplanetName)
+                        if(!a.Equals(b))
                         {
-                            float m1 = a.GetComponent<Rigidbody>().mass;
-                            float m2 = b.GetComponent<Rigidbody>().mass;
-                            float r = Vector3.Distance(a.transform.position, b.transform.position);
-                            SpeedController speedController  = a.GetComponent<SpeedController>();
-                            float currentspeed = speedController.speed;
-                            float U = (2/r) * (1/(ax * currentspeed));
-                            a.GetComponent<Rigidbody>().velocity += -a.transform.right * Mathf.Sqrt((G * m2) * U);
+                            if(a != null)
+                            {   
+                                a.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        InitialVelocity();
+    }
+    void InitialZero()
+    {
+        newplanetName = ButtonInputCreate.name;
+        foreach(GameObject a in celestials)
+        {
+            if(a != null)
+            {
+                foreach(GameObject b in celestials)
+                {
+                    if(b != null)
+                    {
+                        if(!a.Equals(b))
+                        {
+                            if(a != null)
+                            {
+                                if(b.name == newplanetName)
+                                {
+                                    float m1 = a.GetComponent<Rigidbody>().mass;
+                                    float m2 = b.GetComponent<Rigidbody>().mass;
+                                    float r = Vector3.Distance(a.transform.position, b.transform.position);
+                                    SpeedController speedController  = a.GetComponent<SpeedController>();
+                                    float currentspeed = speedController.speed;
+                                    ax = r / (Mathf.Sqrt(1 - Mathf.Pow(currentspeed, 2)));
+                                    float U = (2/r) - (1/ax);
+
+                                    a.GetComponent<Rigidbody>().velocity += -a.transform.right * Mathf.Sqrt((G * m2) * U);
+                                }
+                                else
+                                {
+                                    if(a.name == newplanetName)
+                                    {
+                                        if(b.name != newplanetName)
+                                        {
+                                            float m1 = a.GetComponent<Rigidbody>().mass;
+                                            float m2 = b.GetComponent<Rigidbody>().mass;
+                                            float r = Vector3.Distance(a.transform.position, b.transform.position);
+                                            SpeedController speedController  = a.GetComponent<SpeedController>();
+                                            float currentspeed = speedController.speed;
+                                            ax = r / (Mathf.Sqrt(1 - Mathf.Pow(currentspeed, 2)));
+                                            float U = (2/r) - (1/ax);
+
+                                            a.GetComponent<Rigidbody>().velocity += -a.transform.right * Mathf.Sqrt((G * m2) * U);
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }

@@ -59,13 +59,17 @@ public class ButtonInput : MonoBehaviour
         if(m_inputField_ax.text == "") {axes = planet.GetComponent<SpeedController>().speed;}
         else 
         {
-            if(float.Parse(m_inputField_ax.text) >= 2f)
+            if(float.Parse(m_inputField_ax.text) >= 1f)
             {
-                axes = 0.1f;
+                axes = 0.9f;
+            }
+            else if(float.Parse(m_inputField_ax.text) < 0f) 
+            {
+                axes = 0f;
             }
             else
             {
-                axes = 2 - float.Parse(m_inputField_ax.text);
+                axes = float.Parse(m_inputField_ax.text);
             }
         }
 

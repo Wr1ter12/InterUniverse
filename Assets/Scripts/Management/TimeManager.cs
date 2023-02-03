@@ -55,7 +55,7 @@ public class TimeManager : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            Time.timeScale = 25.0f;
+            Time.timeScale = 10.0f;
         }
         if (Input.GetKey("[2]"))
         {
