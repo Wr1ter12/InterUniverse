@@ -10,7 +10,7 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void Awake()
     {
-        asteroidcount = Random.Range(1, 5);
+        asteroidcount = Random.Range(1, 2);
         for(int i = 0; i < asteroidcount; i++)
         {
             int x = Random.Range(-10000, 10000);
@@ -23,7 +23,7 @@ public class AsteroidSpawner : MonoBehaviour
             newaster.gameObject.transform.localScale = new Vector3(scales, scales, scales);
         }
 
-        asteroidcount = Random.Range(1, 5);
+        asteroidcount = Random.Range(1, 2);
         for(int i = 0; i < asteroidcount; i++)
         {
             int x = Random.Range(-10000, 10000);
@@ -35,7 +35,7 @@ public class AsteroidSpawner : MonoBehaviour
             newaster.gameObject.transform.localScale = new Vector3(scales, scales, scales);
         }
 
-        asteroidcount = Random.Range(1, 5);
+        asteroidcount = Random.Range(1, 2);
         for(int i = 0; i < asteroidcount; i++)
         {
             int x = Random.Range(35000, 45000);
@@ -47,7 +47,7 @@ public class AsteroidSpawner : MonoBehaviour
             newaster.gameObject.transform.localScale = new Vector3(scales, scales, scales);
         }
 
-        asteroidcount = Random.Range(1, 5);
+        asteroidcount = Random.Range(1, 2);
         for(int i = 0; i < asteroidcount; i++)
         {
             int x = Random.Range(-35000, -45000);

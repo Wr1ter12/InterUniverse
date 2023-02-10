@@ -24,7 +24,7 @@ public class ButtonCoordinates : MonoBehaviour
             cam.GetComponent<Coords>().save = 1;
             coords = true;
         }
-        PlayerPrefs.SetInt("post", cam.GetComponent<Coords>().save);
+        PlayerPrefs.SetInt("coords", cam.GetComponent<Names>().save);
     }
 
     public void onToggle()
