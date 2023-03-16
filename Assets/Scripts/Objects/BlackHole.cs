@@ -6,6 +6,7 @@ public class BlackHole : MonoBehaviour
 {
     public GameObject gravitsys;
     public ButtonTrail buttontrail;
+    [SerializeField] GameObject BlackHolePart;
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class BlackHole : MonoBehaviour
     {
         if(collision.gameObject.tag == "Celestial")
         {
+            GameObject part = Instantiate(BlackHolePart, gameObject.transform.position, Quaternion.identity);
+            part.transform.localScale = gameObject.transform.localScale;
             if(collision.gameObject.transform.localScale.x > 0)
             {
                 Vector3 scale = collision.gameObject.transform.localScale;

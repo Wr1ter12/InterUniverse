@@ -5,11 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonPlay : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] string scene;
 
     // Update is called once per frame
     void Update()
@@ -18,6 +14,6 @@ public class ButtonPlay : MonoBehaviour
     }
     public void onClick()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(scene);
     }
 }

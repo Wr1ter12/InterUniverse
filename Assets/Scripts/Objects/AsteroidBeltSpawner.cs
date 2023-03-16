@@ -6,7 +6,7 @@ public class AsteroidBeltSpawner : MonoBehaviour
 {
     [Header("Spawner Settings")]
     public GameObject prefab;
-    public int asteroidDensity;
+    public float asteroidDensity;
     public int seed;
     public float innerRadius;
     public float outerRadius;
@@ -27,6 +27,21 @@ public class AsteroidBeltSpawner : MonoBehaviour
     private float x;
     private float y;
     private float z;
+
+    void Density()
+    {
+        asteroidDensity = PlayerPrefs.GetFloat("Count");
+        if(asteroidDensity == 0)
+        {
+            asteroidDensity = 50;
+            PlayerPrefs.SetFloat("Count", asteroidDensity);
+        }
+    }
+
+    private void Awake()
+    {
+        Density();
+    }
 
     private void Start()
     {

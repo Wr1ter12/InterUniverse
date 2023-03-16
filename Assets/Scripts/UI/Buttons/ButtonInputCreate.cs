@@ -30,7 +30,10 @@ public class ButtonInputCreate : MonoBehaviour
     public static string name;
     public GameObject camera;
     GameObject newplanet;
-    // Start is called before the first frame update
+    [SerializeField] GameObject Error;
+    [SerializeField] GameObject ErrorField;
+    [SerializeField] GameObject ErrorName;
+
     void Start()
     {
         obj = GameObject.Find("ButtonTime");
@@ -47,143 +50,161 @@ public class ButtonInputCreate : MonoBehaviour
         GameObject naming = GameObject.Find(m_inputField_name.text);
         if(naming == null)
         {
-            planetname = m_inputField_name.text;
-            if(ButtonSType.type == "ER")
+            try 
             {
-                scales = float.Parse(m_inputField_s.text) * 2015;
-            }
-            else if(ButtonSType.type == "Km")
-            {
-                scales = float.Parse(m_inputField_s.text) * 2015 / 6371;
-            }
-            if(ButtonMType.type == "EM")
-            {
-                masses = float.Parse(m_inputField_m.text);
-            }
-            else if(ButtonMType.type == "T")
-            {
-                masses = float.Parse(m_inputField_m.text) / 5972000000000000;
-            }
-            if(float.Parse(m_inputField_ax.text) >= 1f)
-            {
-                axes = 0.9f;
-            }
-            else if(float.Parse(m_inputField_ax.text) < 0f) 
-            {
-                axes = 0f;
-            }
-            else
-            {
-                axes = float.Parse(m_inputField_ax.text);
-            }
-            if(m_inputField_pos.text == "")
-            {
-                if(ButtonType.type == "planet")
+                planetname = m_inputField_name.text;
+                if(ButtonSType.type == "ER")
                 {
-                    newplanet = Instantiate(planet, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+                    scales = float.Parse(m_inputField_s.text) * 2015;
                 }
-                else if(ButtonType.type == "star")
+                else if(ButtonSType.type == "Km")
                 {
-                    newplanet = Instantiate(star, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+                    scales = float.Parse(m_inputField_s.text) * 2015 / 6371;
                 }
-                else if(ButtonType.type == "blackhole")
+                if(ButtonMType.type == "EM")
                 {
-                    newplanet = Instantiate(blackhole, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(90f, 0f, 0f));
+                    masses = float.Parse(m_inputField_m.text);
                 }
-                else if(ButtonType.type == "whitehole")
+                else if(ButtonMType.type == "T")
                 {
-                    newplanet = Instantiate(whitehole, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(90f, 0f, 0f));
+                    masses = float.Parse(m_inputField_m.text) / 5972000000000000;
                 }
-                else if(ButtonType.type == "asteroid")
+                if(float.Parse(m_inputField_ax.text) >= 1f)
                 {
-                    newplanet = Instantiate(asteroid, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+                    axes = 0.9f;
                 }
-            }
-            else
-            {
-                if(ButtonPosType.type == "AU")
+                else if(float.Parse(m_inputField_ax.text) < 0f) 
                 {
-                    pos = float.Parse(m_inputField_pos.text) * 15100;
+                    axes = 0f;
                 }
-                else if(ButtonPosType.type == "Km")
+                else
                 {
-                    pos = float.Parse(m_inputField_pos.text) * 15100 * 0.00000000668459f;
+                    axes = float.Parse(m_inputField_ax.text);
                 }
-                float sunpos = sun.transform.position.x;
+                if(m_inputField_pos.text == "")
+                {
+                    if(ButtonType.type == "planet")
+                    {
+                        newplanet = Instantiate(planet, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+                    }
+                    else if(ButtonType.type == "star")
+                    {
+                        newplanet = Instantiate(star, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+                    }
+                    else if(ButtonType.type == "blackhole")
+                    {
+                        newplanet = Instantiate(blackhole, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(90f, 0f, 0f));
+                    }
+                    else if(ButtonType.type == "whitehole")
+                    {
+                        newplanet = Instantiate(whitehole, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(90f, 0f, 0f));
+                    }
+                    else if(ButtonType.type == "asteroid")
+                    {
+                        newplanet = Instantiate(asteroid, new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+                    }
+                }
+                else
+                {
+                    if(ButtonPosType.type == "AU")
+                    {
+                        pos = float.Parse(m_inputField_pos.text) * 15100;
+                    }
+                    else if(ButtonPosType.type == "Km")
+                    {
+                        pos = float.Parse(m_inputField_pos.text) * 15100 * 0.00000000668459f;
+                    }
+                    float sunpos = sun.transform.position.x;
 
-                if(ButtonType.type == "planet")
-                {
-                    newplanet = Instantiate(planet, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+                    if(ButtonType.type == "planet")
+                    {
+                        newplanet = Instantiate(planet, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+                    }
+                    else if(ButtonType.type == "star")
+                    {
+                        newplanet = Instantiate(star, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+                    }
+                    else if(ButtonType.type == "blackhole")
+                    {
+                        newplanet = Instantiate(blackhole, new Vector3(sunpos, 0, pos), Quaternion.Euler(90f, 0f, 0f));
+                    }
+                    else if(ButtonType.type == "whitehole")
+                    {
+                        newplanet = Instantiate(whitehole, new Vector3(sunpos, 0, pos), Quaternion.Euler(90f, 0f, 0f));
+                    }
+                    else if(ButtonType.type == "asteroid")
+                    {
+                        newplanet = Instantiate(asteroid, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+                    }
                 }
-                else if(ButtonType.type == "star")
+                newplanet.name = planetname;
+                newplanet.gameObject.transform.localScale = new Vector3(scales, scales, scales);
+                newplanet.GetComponent<Rigidbody>().mass = masses;
+                newplanet.GetComponent<SpeedController>().speed = axes;
+                name = newplanet.name;
+                gravitsys.GetComponent<GravitySystem>().Celestials();
+                buttontrail.GetComponent<ButtonTrail>().Celestials();
+                buttondestroy.GetComponent<ButtonDestroy>().Celestials();
+                newplanet.SetActive(true);
+                Cursor.lockState = CursorLockMode.Confined;
+                if(obj.GetComponent<TMP_Dropdown>().value == 0)
                 {
-                    newplanet = Instantiate(star, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+                    Time.timeScale = 1.0f;
                 }
-                else if(ButtonType.type == "blackhole")
+                if(obj.GetComponent<TMP_Dropdown>().value == 1)
                 {
-                    newplanet = Instantiate(blackhole, new Vector3(sunpos, 0, pos), Quaternion.Euler(90f, 0f, 0f));
+                    Time.timeScale = 2.0f;
                 }
-                else if(ButtonType.type == "whitehole")
+                if(obj.GetComponent<TMP_Dropdown>().value == 2)
                 {
-                    newplanet = Instantiate(whitehole, new Vector3(sunpos, 0, pos), Quaternion.Euler(90f, 0f, 0f));
+                    Time.timeScale = 3.0f;
                 }
-                else if(ButtonType.type == "asteroid")
+                if(obj.GetComponent<TMP_Dropdown>().value == 3)
                 {
-                    newplanet = Instantiate(asteroid, new Vector3(sunpos, 0, pos), Quaternion.Euler(0f, 0f, 0f));
+                    Time.timeScale = 4.0f;
                 }
+                if(obj.GetComponent<TMP_Dropdown>().value == 4)
+                {
+                    Time.timeScale = 5.0f;
+                }
+                if(obj.GetComponent<TMP_Dropdown>().value == 5)
+                {
+                    Time.timeScale = 10.0f;
+                }
+                if(obj.GetComponent<TMP_Dropdown>().value == 6)
+                {
+                    Time.timeScale = 0.5f;
+                }
+                if(obj.GetComponent<TMP_Dropdown>().value == 7)
+                {
+                    Time.timeScale = 0.33f;
+                }
+                if(obj.GetComponent<TMP_Dropdown>().value == 8)
+                {
+                    Time.timeScale = 0.25f;
+                }
+                if(obj.GetComponent<TMP_Dropdown>().value == 9)
+                {
+                    Time.timeScale = 0.2f;
+                }
+                script.enabled = true;
+                input.SetActive(false);
+                Error.SetActive(false);
+                ErrorName.SetActive(false);
+                ErrorField.SetActive(false);
             }
-            newplanet.name = planetname;
-            newplanet.gameObject.transform.localScale = new Vector3(scales, scales, scales);
-            newplanet.GetComponent<Rigidbody>().mass = masses;
-            newplanet.GetComponent<SpeedController>().speed = axes;
-            name = newplanet.name;
-            gravitsys.GetComponent<GravitySystem>().Celestials();
-            buttontrail.GetComponent<ButtonTrail>().Celestials();
-            buttondestroy.GetComponent<ButtonDestroy>().Celestials();
-            newplanet.SetActive(true);
-            Cursor.lockState = CursorLockMode.Confined;
-            if(obj.GetComponent<TMP_Dropdown>().value == 0)
+            catch
             {
-                Time.timeScale = 1.0f;
+                Error.SetActive(true);
+                ErrorName.SetActive(false);
+                ErrorField.SetActive(true);
             }
-            if(obj.GetComponent<TMP_Dropdown>().value == 1)
-            {
-                Time.timeScale = 2.0f;
-            }
-            if(obj.GetComponent<TMP_Dropdown>().value == 2)
-            {
-                Time.timeScale = 3.0f;
-            }
-            if(obj.GetComponent<TMP_Dropdown>().value == 3)
-            {
-                Time.timeScale = 4.0f;
-            }
-            if(obj.GetComponent<TMP_Dropdown>().value == 4)
-            {
-                Time.timeScale = 5.0f;
-            }
-            if(obj.GetComponent<TMP_Dropdown>().value == 5)
-            {
-                Time.timeScale = 25.0f;
-            }
-            if(obj.GetComponent<TMP_Dropdown>().value == 6)
-            {
-                Time.timeScale = 0.5f;
-            }
-            if(obj.GetComponent<TMP_Dropdown>().value == 7)
-            {
-                Time.timeScale = 0.33f;
-            }
-            if(obj.GetComponent<TMP_Dropdown>().value == 8)
-            {
-                Time.timeScale = 0.25f;
-            }
-            if(obj.GetComponent<TMP_Dropdown>().value == 9)
-            {
-                Time.timeScale = 0.2f;
-            }
-            script.enabled = true;
-            input.SetActive(false);
+        }
+        else
+        {
+            Error.SetActive(true);
+            ErrorName.SetActive(true);
+            ErrorField.SetActive(false);
         }
     }
 }

@@ -21,7 +21,7 @@ public class MouseLook : MonoBehaviour
     public float frameCounter = 20;
     public static Quaternion originalRotation;
 
-    private void Awake()
+    void Sensetivity()
     {
         sensitivityX = PlayerPrefs.GetFloat("Sense");
         sensitivityY = PlayerPrefs.GetFloat("Sense");
@@ -33,8 +33,23 @@ public class MouseLook : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        Sensetivity();
+    }
+
     void Update ()
     {
+        if(Cursor.lockState == CursorLockMode.Confined)
+        {
+            sensitivityX = 0f;
+            sensitivityY = 0f;
+        }
+        else
+        {
+            Sensetivity();
+        }
+
         if (axes == RotationAxes.MouseXAndY)
         {
             //Resets the average rotation

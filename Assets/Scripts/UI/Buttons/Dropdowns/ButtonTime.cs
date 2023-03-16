@@ -85,7 +85,7 @@ public class ButtonTime : MonoBehaviour
             obj.GetComponent<TMP_Dropdown>().value = 4;
             obj.GetComponent<Image>().sprite = sprites[4];
         }
-        if(Time.timeScale == 25.0f)
+        if(Time.timeScale == 10.0f)
         {
             obj.GetComponent<TMP_Dropdown>().value = 5;
             obj.GetComponent<Image>().sprite = sprites[5];
@@ -109,6 +109,10 @@ public class ButtonTime : MonoBehaviour
         {
             obj.GetComponent<TMP_Dropdown>().value = 9;
             obj.GetComponent<Image>().sprite = sprites[9];
+        }
+        if(Time.timeScale == 0f)
+        {
+            obj.GetComponent<Image>().sprite = sprites[10];
         }
     }
 }

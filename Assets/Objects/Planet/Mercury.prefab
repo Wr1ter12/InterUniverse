@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 2166216386572799285}
   - component: {fileID: 2166216386572799284}
   - component: {fileID: -7861528118664169512}
+  - component: {fileID: 6758521788753601084}
+  - component: {fileID: 2336880253561676371}
   m_Layer: 0
   m_Name: Mercury
   m_TagString: Celestial
@@ -275,6 +277,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: {fileID: 3701048576527656799}
+--- !u!114 &6758521788753601084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355191522416423018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8ae66608942874dbfd6b9baf5a9a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dist: 10
+--- !u!114 &2336880253561676371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355191522416423018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a090720ac6f01cd4db31975eac4329c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlackHole: {fileID: 3739466065416292315, guid: a6b7f74fb86f0d440a41b8e94a9f7352, type: 3}
+  Destroy: {fileID: 3739466065416292315, guid: 5f7924d8541605547a9ef3ae67de0287, type: 3}
 --- !u!1 &4124697634060199493
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &422133950166897501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -301,7 +330,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4124697634060199493}
   m_LocalRotation: {x: 0.7069824, y: 0.014210017, z: -0.014173179, w: 0.7069464}
-  m_LocalPosition: {x: 0, y: 0, z: 0.060399994}
+  m_LocalPosition: {x: 0, y: 0, z: 0.057}
   m_LocalScale: {x: 2.633987, y: 2.633987, z: 2.6339874}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -310,8 +339,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0009999871, y: 0.0000038146973}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.0067, y: 0}
+  m_SizeDelta: {x: 3, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &345553846167918326
 MeshRenderer:
@@ -402,8 +431,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.3
-  m_fontSizeBase: 0.3
+  m_fontSize: 0.1
+  m_fontSizeBase: 0.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

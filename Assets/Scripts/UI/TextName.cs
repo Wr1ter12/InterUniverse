@@ -7,6 +7,7 @@ public class TextName : MonoBehaviour
 {
     public TextMeshPro name;
     int save;
+    float dist;
 
     void Start()
     {

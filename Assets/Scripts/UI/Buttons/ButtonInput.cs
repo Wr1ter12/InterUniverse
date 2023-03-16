@@ -99,7 +99,7 @@ public class ButtonInput : MonoBehaviour
         }
         if(obj.GetComponent<TMP_Dropdown>().value == 5)
         {
-            Time.timeScale = 25.0f;
+            Time.timeScale = 10.0f;
         }
         if(obj.GetComponent<TMP_Dropdown>().value == 6)
         {
