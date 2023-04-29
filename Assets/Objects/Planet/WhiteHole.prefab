@@ -5145,7 +5145,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.02
+  m_Radius: 0.011
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!96 &4864638117685555356
 TrailRenderer:
@@ -5301,7 +5301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a090720ac6f01cd4db31975eac4329c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlackHole: {fileID: 3739466065416292315, guid: a6b7f74fb86f0d440a41b8e94a9f7352, type: 3}
   Destroy: {fileID: 3739466065416292315, guid: 5f7924d8541605547a9ef3ae67de0287, type: 3}
 --- !u!114 &6973391085298984462
 MonoBehaviour:
@@ -5317,3 +5316,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravitsys: {fileID: 0}
   buttontrail: {fileID: 5771346208370436808, guid: 6d5892a196daed24eae703c54e484ec2, type: 3}
+  WhiteHolePart: {fileID: 0}

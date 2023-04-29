@@ -5,6 +5,9 @@ using UnityEngine;
 public class ButtonMType : MonoBehaviour
 {
     public static string type;
+    [SerializeField] GameObject text1;
+    [SerializeField] GameObject text2;
+    [SerializeField] GameObject text3;
 
     void Start()
     {
@@ -21,5 +24,32 @@ public class ButtonMType : MonoBehaviour
         {
             type = "T";
         }
+        if(value == 2)
+        {
+            type = "SM";
+        }
+    }
+
+    public void OnMouseOver()
+    {
+        if(type == "EM")
+        {
+            text1.SetActive(true);
+        }
+        if(type == "T")
+        {
+            text2.SetActive(true);
+        }
+        if(type == "SM")
+        {
+            text3.SetActive(true);
+        }
+    }
+
+    public void OnMouseExit()
+    {
+        text1.SetActive(false);
+        text2.SetActive(false);
+        text3.SetActive(false);
     }
 }

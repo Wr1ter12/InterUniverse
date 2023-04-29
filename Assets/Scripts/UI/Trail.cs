@@ -12,5 +12,9 @@ public class Trail : MonoBehaviour
     {
         dist = Vector3.Distance(Camera.main.transform.position, transform.position);
         GetComponent<TrailRenderer>().widthMultiplier = curwidth + dist / 500;
+        if(gameObject.GetComponent<LineRenderer> () != null)
+        {
+            GetComponent<LineRenderer>().widthMultiplier = curwidth + dist / 500;
+        }
     }
 }

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ButtonMusic : MonoBehaviour
 {
-    public AudioSource PlanetMarch;
-    public AudioSource SunnyWiggle;
-    public AudioSource UpToTheStars;
+    [SerializeField] AudioSource PlanetMarch;
+    [SerializeField] AudioSource SunnyWiggle;
+    [SerializeField] AudioSource UpToTheStars;
+    [SerializeField] AudioSource LoFiSky;
 
     public void onClick()
     {
@@ -26,11 +27,19 @@ public class ButtonMusic : MonoBehaviour
             {
                 if(UpToTheStars.isPlaying)
                 {
-                UpToTheStars.Stop();
+                    LoFiSky.Play();
+                    UpToTheStars.Stop();
                 }
                 else 
                 {
-                PlanetMarch.Play();
+                    if(LoFiSky.isPlaying)
+                    {
+                        LoFiSky.Stop();
+                    }
+                    else
+                    {
+                        PlanetMarch.Play();
+                    }
                 }
             }
         }

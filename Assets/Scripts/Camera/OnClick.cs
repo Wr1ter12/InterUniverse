@@ -26,10 +26,31 @@ public class OnClick : MonoBehaviour
         input = store.GetComponent<InactiveManager>().changing;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update(){
+        if(Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            { 
+                if(hit.collider == gameObject.GetComponent<Collider>())
+                {
+                    if(tutor.activeSelf == false && create.activeSelf == false && quit.activeSelf == false)
+                    {
+                        planet = gameObject;
+                        if(planet.GetComponent<Outline>().enabled == false)
+                        {
+                            planet.GetComponent<Outline>().enabled = true;
+                        }
+                        Time.timeScale = 0f;
+                        Cursor.lockState = CursorLockMode.Confined;
+                        script.enabled = false;
+                        camera.GetComponent<AudioSource>().Play();
+                        input.SetActive(true);
+                    }
+                }
+            }
+        }
     }
 
     void OnMouseDown()
@@ -37,6 +58,10 @@ public class OnClick : MonoBehaviour
         if(tutor.activeSelf == false && create.activeSelf == false && quit.activeSelf == false)
         {
             planet = gameObject;
+            if(planet.GetComponent<Outline>().enabled == false)
+            {
+                planet.GetComponent<Outline>().enabled = true;
+            }
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.Confined;
             script.enabled = false;

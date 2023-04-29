@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: -5577888542738770499}
   - component: {fileID: 3107708905470439197}
   - component: {fileID: 2752310305357367441}
+  - component: {fileID: 139526963605462687}
+  - component: {fileID: 4339126235226550879}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Celestial
@@ -67,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a6e577d53e1e7154cb4e443f8025d2e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -173,5 +175,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a090720ac6f01cd4db31975eac4329c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlackHole: {fileID: 3739466065416292315, guid: a6b7f74fb86f0d440a41b8e94a9f7352, type: 3}
   Destroy: {fileID: 3739466065416292315, guid: 5f7924d8541605547a9ef3ae67de0287, type: 3}
+--- !u!114 &139526963605462687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640137064866945478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721db5f8db024b8418d550a90ca76ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: 0
+--- !u!114 &4339126235226550879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640137064866945478}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0.8862745, a: 1}
+  outlineWidth: 7
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

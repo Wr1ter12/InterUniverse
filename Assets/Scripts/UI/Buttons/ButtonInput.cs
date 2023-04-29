@@ -41,6 +41,10 @@ public class ButtonInput : MonoBehaviour
             {
                 scales = float.Parse(m_inputField_s.text) * 2015 / 6371;
             }
+            else if(ButtonSType.type == "SR")
+            {
+                scales = float.Parse(m_inputField_s.text) * 219635;
+            }
         }
 
         if(m_inputField_m.text == "") {masses = planet.GetComponent<Rigidbody>().mass;}
@@ -53,6 +57,10 @@ public class ButtonInput : MonoBehaviour
             else if(ButtonMType.type == "T")
             {
                 masses = float.Parse(m_inputField_m.text) / 5972000000000000;
+            }
+            else if(ButtonMType.type == "SM")
+            {
+                masses = float.Parse(m_inputField_m.text) * 333000;
             }
         }
         
@@ -76,6 +84,11 @@ public class ButtonInput : MonoBehaviour
         planet.gameObject.transform.localScale = new Vector3(scales, scales, scales);
         planet.GetComponent<Rigidbody>().mass = masses;
         planet.GetComponent<SpeedController>().speed = axes;
+        /*if(SaveManager.Instance != null)
+        {
+            SaveManager.Instance.RemoveObj(planet.name);
+            SaveManager.Instance.AddObj(planet, "NaN");
+        }*/
         Cursor.lockState = CursorLockMode.Confined;
         if(obj.GetComponent<TMP_Dropdown>().value == 0)
         {
@@ -116,6 +129,10 @@ public class ButtonInput : MonoBehaviour
         if(obj.GetComponent<TMP_Dropdown>().value == 9)
         {
             Time.timeScale = 0.2f;
+        }
+        if(planet.GetComponent<Outline>().enabled = true)
+        {
+            planet.GetComponent<Outline>().enabled = false;
         }
         script.enabled = true;
         input.SetActive(false);

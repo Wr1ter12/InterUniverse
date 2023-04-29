@@ -11,6 +11,17 @@ public class CurrentS : MonoBehaviour
     void Update()
     {
         planet = OnClick.planet;
-        text.text = (planet.transform.localScale.x / 2015).ToString();
+        if(ButtonSType.type == "ER")
+        {
+            text.text = (planet.transform.localScale.x / 2015).ToString();
+        }
+        else if(ButtonSType.type == "Km")
+        {
+            text.text = (planet.transform.localScale.x / 2015 * 6371).ToString();
+        }
+        else if(ButtonSType.type == "SR")
+        {
+            text.text = (planet.transform.localScale.x / 219635).ToString();
+        }
     }
 }

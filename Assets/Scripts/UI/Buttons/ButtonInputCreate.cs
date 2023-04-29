@@ -61,6 +61,10 @@ public class ButtonInputCreate : MonoBehaviour
                 {
                     scales = float.Parse(m_inputField_s.text) * 2015 / 6371;
                 }
+                else if(ButtonSType.type == "SR")
+                {
+                    scales = float.Parse(m_inputField_s.text) * 219635;
+                }
                 if(ButtonMType.type == "EM")
                 {
                     masses = float.Parse(m_inputField_m.text);
@@ -68,6 +72,10 @@ public class ButtonInputCreate : MonoBehaviour
                 else if(ButtonMType.type == "T")
                 {
                     masses = float.Parse(m_inputField_m.text) / 5972000000000000;
+                }
+                else if(ButtonMType.type == "SM")
+                {
+                    masses = float.Parse(m_inputField_m.text) * 333000;
                 }
                 if(float.Parse(m_inputField_ax.text) >= 1f)
                 {
@@ -146,6 +154,10 @@ public class ButtonInputCreate : MonoBehaviour
                 buttontrail.GetComponent<ButtonTrail>().Celestials();
                 buttondestroy.GetComponent<ButtonDestroy>().Celestials();
                 newplanet.SetActive(true);
+                /*if(SaveManager.Instance != null)
+                {
+                    SaveManager.Instance.AddObj(newplanet, ButtonType.type);
+                }*/
                 Cursor.lockState = CursorLockMode.Confined;
                 if(obj.GetComponent<TMP_Dropdown>().value == 0)
                 {

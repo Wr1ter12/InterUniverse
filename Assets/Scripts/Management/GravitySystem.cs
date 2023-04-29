@@ -9,9 +9,16 @@ public class GravitySystem : MonoBehaviour
     public string newplanetName;
     float ax;
 
+    LineRenderer Line;
+    float ThetaScale = 0.01f; 
+    float radius = 3f;
+    private int Size;
+    private float Theta = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
+        Line = GetComponent<LineRenderer>();
         celestials = new List<GameObject>();
         for(int i = 0; i < GameObject.FindGameObjectsWithTag("Celestial").Length; i++)
         {

@@ -5,15 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class ButtonPlay : MonoBehaviour
 {
+    [SerializeField] Animator anim;
     [SerializeField] string scene;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void onClick()
     {
+        StartCoroutine(Play());
+    }
+
+    IEnumerator Play()
+    {
+        anim.SetTrigger("fadeIn");
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(scene);
     }
 }

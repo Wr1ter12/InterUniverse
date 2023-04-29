@@ -6,20 +6,15 @@ public class ButtonCancel : MonoBehaviour
 {
     public GameObject input;
     [SerializeField] private Behaviour script;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    GameObject planet;
 
     public void onClick()
     {
+        planet = OnClick.planet;
+        if(planet.GetComponent<Outline>().enabled = true)
+        {
+            planet.GetComponent<Outline>().enabled = false;
+        }
         Time.timeScale = 1f;
         script.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;

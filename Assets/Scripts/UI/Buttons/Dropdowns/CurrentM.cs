@@ -11,6 +11,17 @@ public class CurrentM : MonoBehaviour
     void Update()
     {
         planet = OnClick.planet;
-        text.text = planet.GetComponent<Rigidbody>().mass.ToString();
+        if(ButtonMType.type == "EM")
+        {
+            text.text = planet.GetComponent<Rigidbody>().mass.ToString();
+        }
+        else if(ButtonMType.type == "T")
+        {
+            text.text = (planet.GetComponent<Rigidbody>().mass * 5972000000000000).ToString();
+        }
+        else if(ButtonMType.type == "SM")
+        {
+            text.text = (planet.GetComponent<Rigidbody>().mass / 333000).ToString();
+        }
     }
 }

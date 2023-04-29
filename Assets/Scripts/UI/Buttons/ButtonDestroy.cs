@@ -7,6 +7,7 @@ public class ButtonDestroy : MonoBehaviour
     public List<GameObject> celestials;
     public GravitySystem gravitsys;
     public ButtonTrail buttontrail;
+    [SerializeField] GameObject temparray;
 
     void Start()
     {
@@ -33,12 +34,30 @@ public class ButtonDestroy : MonoBehaviour
                 {
                     gravitsys.celestials.Remove(a);
                     buttontrail.celestials.Remove(a);
+                    try
+                    {
+                        temparray.GetComponent<TempArray>().stars.Remove(a);
+                    }
+                    catch{}
+                    if(SaveManager.Instance != null)
+                    {
+                        SaveManager.Instance.RemoveObj(a.name);
+                    }
                     a.SetActive(false);
                 }
                 else
                 {
                     gravitsys.celestials.Remove(a);
                     buttontrail.celestials.Remove(a);
+                    try
+                    {
+                        temparray.GetComponent<TempArray>().stars.Remove(a);
+                    }
+                    catch{}
+                    if(SaveManager.Instance != null)
+                    {
+                        SaveManager.Instance.RemoveObj(a.name);
+                    }
                     Destroy(a);
                 }
             }

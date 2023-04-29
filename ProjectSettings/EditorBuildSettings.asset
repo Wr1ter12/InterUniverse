@@ -19,5 +19,14 @@ EditorBuildSettings:
     guid: 01d2caaae77f7ef4586350e50134a800
   - enabled: 1
     path: Assets/Scenes/Empty.unity
-    guid: 41a9eaec19d25d247b14d4b07c94030f
+    guid: 665a5d31d7a66a24784c15ace5d5bc7e
+  - enabled: 1
+    path: Assets/Scenes/Empty1.unity
+    guid: 24f272dfb1d70ad4cabaa6f03a040aed
+  - enabled: 1
+    path: Assets/Scenes/Empty2.unity
+    guid: f7c6c4566e287a54fa918276d380f212
+  - enabled: 1
+    path: Assets/Scenes/Generation.unity
+    guid: 585ce080601708d46ae703c39b790f59
   m_configObjects: {}

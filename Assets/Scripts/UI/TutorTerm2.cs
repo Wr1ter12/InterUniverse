@@ -19,6 +19,12 @@ public class TutorTerm2 : MonoBehaviour
     [SerializeField] GameObject text10;
     [SerializeField] GameObject text11;
     [SerializeField] GameObject text12;
+    [SerializeField] GameObject text13;
+    [SerializeField] GameObject text14;
+    [SerializeField] GameObject text15;
+    [SerializeField] GameObject text16;
+    [SerializeField] GameObject text17;
+    [SerializeField] GameObject text18;
 
     public void OnMouseOver()
     {
@@ -63,6 +69,24 @@ public class TutorTerm2 : MonoBehaviour
                 case "Moon":
                     text12.SetActive(true);
                     break;
+                case "Ceres":
+                    text13.SetActive(true);
+                    break;
+                case "Europe":
+                    text14.SetActive(true);
+                    break;
+                case "Io":
+                    text15.SetActive(true);
+                    break;
+                case "Callisto":
+                    text16.SetActive(true);
+                    break;
+                case "Ganymede":
+                    text17.SetActive(true);
+                    break;
+                case "Titan":
+                    text18.SetActive(true);
+                    break;
                 default:
                     break;
             }    
@@ -83,5 +107,11 @@ public class TutorTerm2 : MonoBehaviour
         text10.SetActive(false);
         text11.SetActive(false);
         text12.SetActive(false);
+        text13.SetActive(false);
+        text14.SetActive(false);
+        text15.SetActive(false);
+        text16.SetActive(false);
+        text17.SetActive(false);
+        text18.SetActive(false);
     }
 }

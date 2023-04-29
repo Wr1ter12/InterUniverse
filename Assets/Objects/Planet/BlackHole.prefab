@@ -5145,7 +5145,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.02
+  m_Radius: 0.011
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!96 &4864638117685555356
 TrailRenderer:
