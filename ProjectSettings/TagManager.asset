@@ -5,11 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Celestial
+  - Monitor
+  - Deformers
+  - Nebula
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NonCollision
   - Water
   - UI
   - PostProcessing
